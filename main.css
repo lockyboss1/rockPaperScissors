@@ -1,0 +1,110 @@
+body {
+    background-color: #6d6875;
+}
+
+header {
+    color: #111; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 75px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    text-align: center;
+}
+
+#rules {
+    color: #14213d;
+    font-family: 'Oswald';
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 45.1%;
+}
+
+#rule {
+    text-align: center;
+}
+
+ol li {
+    color: #14213d;
+    font-family: 'Oswald';
+    font-size: 20px;  
+    font-weight: bold;
+    display: inline-block;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+img:hover {
+    opacity: 0.8;
+}
+
+button {
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    background-color: black;
+}
+
+#rock1 {
+    margin-left: 25%;
+}
+
+#paper1 {
+    margin-left: 5%;
+}
+
+#scissors1 {
+    margin-left: 5%;
+}
+
+.five {
+    color: #3a86ff;
+}
+
+#selection {
+    float: right;
+    margin-right: 3%;
+    margin-top: -20%;
+}
+
+#score {
+    margin-left: 4%;
+    margin-top: -20%;
+}
+
+#results {
+    text-align: center;
+    padding-top: 2%;
+    margin-left: 5.1%;
+}
+
+.sel-1 {
+    color: #14213d;
+    font-family: 'Oswald';
+    font-size: 20px;  
+    font-weight: bold;
+    text-decoration: underline;   
+}
+
+#new-button {
+  color: chocolate;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+#new-game {
+    margin-left: 48.3%;
+    padding-top: 20px;
+}
+
+.computer-select {
+    padding-bottom: 8px;
+}
