@@ -10,22 +10,33 @@
 
 <body>
     <header>
-        ROCK - PAPER - SCISSORS
+        ROCK . PAPER . SCISSORS
     </header>
-    <hr>
 
-    <div id="rule">
-        <ol>
-            <li>Game Rules: Paper covers Rock - </li>
-            <li>Rock crushes Scissors - </li>
-            <li>Scissors cuts Paper - </li>
-            <li>Same hands is a tie and doesn't count</li>
-        </ol>
+    <div id="myModal" class="modal hidden">
+        <div class="modal-content">
+            <h4>GAME RULES</h4>
+        <ul>
+            <li>Paper covers Rock.</li>
+            <li>Rock crushes Scissors.</li>
+            <li>Scissors cuts Paper.</li>
+            <li>Same hands is a tie and doesn't count.</li>
+        </ul>
+        <p class="rules">First to <span class="five">FIVE </span>points wins.</p>
+
+        <hr>
+
+        <div id='playerName'>
+            <label for="name">Player Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+        </div>
+
+        <input type="button" id="submit" name="name" value="Submit">    
+
+        </div>
     </div>
-    <p id="rules">First to <span class="five">FIVE </span>points wins</p>
-    <div id="results"></div>
-
-    <div class="top">
+   
+    <div class="img-container">
         <button id="rock1"><img src="rock.png" id="rock"></button>
         <button id="paper1"><img src="paper.png" id="paper"></button>
         <button id="scissors1"><img src="scissors.png" id="scissors"></button>
@@ -35,16 +46,27 @@
         <input type="button" id="new-button" value="Restart Game?" onclick="location.reload();" />
     </div>
 
+    <hr class="line1">
+
+    <div id="game-log">
+        <p class="sel-1">GAME LOG</p>
+        <div id="log">
+            <p><span id="log1"></span></p>
+            <p><span id="log2"></span> </p>
+        </div>
+    </div>
+
+    <div id="game-score">
+        <p class="sel-1">GAME SCORE</p>
+        <div id="score">
+            <p><span id="score1"></span></p>
+            <p><span id="score2"></span> </p>
+        </div>
+    </div>
+
+    <div class="vl"></div>
+
     <div id="results"></div>
-    <div id="track"></div>
-
-    <div id="selection">
-        <p class="sel-1">Game Log</p>
-    </div>
-
-    <div id="score">
-        <p class="sel-1">Game Score</p>
-    </div>
 
     <script src="main.js"></script>
 </body>

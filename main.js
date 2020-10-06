@@ -1,6 +1,22 @@
 const gameChoices = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
+let modal = document.getElementById("myModal");
+let name = document.getElementById('name');
+let submit = document.getElementById("submit");
+let result = document.querySelector('#results');
+
+//function that takes the user input.
+function addName() {
+    if (name.value === '') {
+        alert("Please write your name.")
+        return false;
+    } else {
+        
+        modal.style.display = 'none';
+    }
+}
+submit.addEventListener('click', addName);
 
 function computerPlay() {
     let randomChoice = Math.floor(Math.random() * gameChoices.length);
@@ -32,41 +48,23 @@ function playRound(playerSelection, computerSelection) {
 
 function gameOver() {
     if (playerScore > computerScore) {
-        const container = document.querySelector('#results');
-        const playerWin = document.createElement('div');
-        let h1 = document.createElement('h1');
+        let p2 = document.createElement('p');
         let p1 = document.createElement('p');
-        playerWin.classList.add('player-win');
-        playerWin.textContent = "Game Over";
-        p1.textContent = "Congratulations you win!!!";
-        h1.textContent = `Final score is ${playerScore} - ${computerScore}`;
-        h1.style.color = '#073b4c';
-        p1.style.color = '#073b4c';
-        playerWin.style.color = '#073b4c';
-        playerWin.style.fontSize = '20px'
-        p1.style.fontSize = '20px'
-        h1.style.fontSize = '20px'
-        container.appendChild(playerWin);
-        container.appendChild(p1);
-        container.appendChild(h1);
+        p2.id = "sel-2";
+        p1.id = "sel-3";
+        p2.textContent = "GAME OVER";
+        p1.textContent = `Congratulations ${name.value}, you won!!!`;
+        result.appendChild(p2);
+        result.appendChild(p1);
     } else if (computerScore > playerScore) {
-        const container = document.querySelector('#results');
-        const playerWin = document.createElement('div');
-        let h1 = document.createElement('h1');
+        let p2 = document.createElement('p');
         let p1 = document.createElement('p');
-        playerWin.classList.add('player-win');
-        playerWin.textContent = "Game Over";
+        p2.id = "sel-2";
+        p1.id = "sel-3";
+        p2.textContent = "GAME OVER";
         p1.textContent = "The Computer Wins!!!";
-        h1.textContent = `Final score is ${computerScore} - ${playerScore}`;
-        h1.style.color = '#073b4c';
-        p1.style.color = '#073b4c';
-        playerWin.style.color = '#073b4c';
-        playerWin.style.fontSize = '20px'
-        p1.style.fontSize = '20px'
-        h1.style.fontSize = '20px'
-        container.appendChild(playerWin);
-        container.appendChild(p1);
-        container.appendChild(h1);
+        result.appendChild(p2);
+        result.appendChild(p1);
     }
 }
 
@@ -74,18 +72,20 @@ function game() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener("click", function (event) {
+            //make the images shake
+            button.classList.add("anim");
+            setTimeout(function() {//stop the images from shaking after 0.5s
+                button.classList.remove("anim");            
+            }, 500);
+           
             const computerSelection = computerPlay()
             let element = event.target;
             let playerSelection = element.id;
-            const selection = document.querySelector('#selection');
-            const selection1 = document.createElement('div');
-            const selection2 = document.createElement('div');
-            selection1.classList.add('computer-select');
-            selection2.textContent = `Player Selection: ${playerSelection}`;
+            let selection1 = document.getElementById("log1");
+            let selection2 = document.getElementById("log2");
+            
+            selection2.textContent = `${name.value}'s Selection: ${playerSelection}`;
             selection1.textContent = `Computer Selection: ${computerSelection}`;
-            selection.appendChild(selection2);
-            selection.appendChild(selection1);
-
 
             let gameCount = playRound(playerSelection, computerSelection);
             if (gameCount == "youWin") {
@@ -94,14 +94,11 @@ function game() {
                 computerScore++;
             }
 
-            const score = document.querySelector('#score');
-            const score1 = document.createElement('div');
-            const score2 = document.createElement('div');
-            score1.textContent = `Player score: ${playerScore}`;
+            //update game score
+            let score1 = document.getElementById("score1");
+            let score2 = document.getElementById("score2");
+            score1.textContent = `${name.value}'s score: ${playerScore}`;
             score2.textContent = `Computer score: ${computerScore}`;
-            score2.classList.add('computer-select');
-            score.appendChild(score1);
-            score.appendChild(score2);
             
             if (playerScore == 5 || computerScore == 5) {
                 document.getElementById("rock1").disabled = true;
